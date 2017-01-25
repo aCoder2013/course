@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by song on 2017/1/25.
  */
-@FeignClient("course-services")
+@FeignClient("course-service")
 public interface UserReader {
 
-    @RequestMapping(value = "/users/all",method = RequestMethod.GET)
+    @RequestMapping(value = "/users",method = RequestMethod.GET)
     Resources<User> read();
 }
