@@ -18,4 +18,29 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @RestResource(path = "by-name")
     List<User> findByName(@Param("name") String name);
+
+
+    @Override
+    @RestResource(exported = false)
+    void deleteInBatch(Iterable<User> iterable);
+
+    @Override
+    @RestResource(exported = false)
+    void deleteAllInBatch();
+
+    @Override
+    @RestResource(exported = false)
+    void delete(String s);
+
+    @Override
+    @RestResource(exported = false)
+    void delete(User user);
+
+    @Override
+    @RestResource(exported = false)
+    void delete(Iterable<? extends User> iterable);
+
+    @Override
+    @RestResource(exported = false)
+    void deleteAll();
 }
