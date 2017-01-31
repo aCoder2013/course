@@ -1,7 +1,7 @@
 package com.song;
 
-import com.song.domain.User;
 import com.song.message.CourseChannel;
+import com.song.model.User;
 import com.song.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +45,5 @@ public class CourseServiceApplication {
             userRepository.findAll().forEach(System.out::println);
         }
     }
-
 
 }

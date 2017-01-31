@@ -1,6 +1,6 @@
 package com.song.message;
 
-import com.song.domain.User;
+import com.song.model.User;
 import com.song.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

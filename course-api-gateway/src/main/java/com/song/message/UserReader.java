@@ -1,6 +1,7 @@
 package com.song.message;
 
-import com.song.domain.User;
+
+import com.song.model.User;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.hateoas.Resources;

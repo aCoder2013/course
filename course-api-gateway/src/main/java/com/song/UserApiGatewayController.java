@@ -1,9 +1,9 @@
 package com.song;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.song.domain.User;
 import com.song.message.UserReader;
 import com.song.message.UserWriter;
+import com.song.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
+
 
 /**
  * Created by song on 2017/1/21.
@@ -51,4 +52,6 @@ public class UserApiGatewayController {
         userWriter.write(user.getName());
         return "Success";
     }
+
+
 }
