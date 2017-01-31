@@ -18,7 +18,7 @@ public class CourseMessageProcessor {
     private UserRepository userRepository;
 
     @ServiceActivator(inputChannel = "input")
-    public void receivedMessage(Message<String> msg){
+    public void receivedMessage(Message<String> msg) {
         userRepository.save(new User(msg.getPayload()));
     }
 }

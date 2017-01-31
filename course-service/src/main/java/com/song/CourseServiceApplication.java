@@ -26,7 +26,6 @@ public class CourseServiceApplication {
         SpringApplication.run(CourseServiceApplication.class, args);
     }
 
-
     @Bean
     public Sampler sampler() {
         return new AlwaysSampler();
