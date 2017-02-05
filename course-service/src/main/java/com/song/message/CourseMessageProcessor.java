@@ -2,7 +2,9 @@ package com.song.message;
 
 import com.song.model.User;
 import com.song.repository.UserRepository;
+import com.song.vo.UserVO;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -22,7 +24,14 @@ public class CourseMessageProcessor {
     private PasswordEncoder passwordEncoder;
 
     @ServiceActivator(inputChannel = "input")
-    public void receivedMessage(Message<String> msg) {
-        userRepository.save(new User(msg.getPayload(),passwordEncoder.encode("123456")));
+    public void handleUserMessage(Message<UserVO> msg) {
+        UserVO userVO = msg.getPayload();
+        User user = new User();
+        BeanUtils.copyProperties(userVO, user);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        long now = System.currentTimeMillis();
+        user.setCreated(now);
+        user.setUpdated(now);
+        userRepository.save(user);
     }
 }

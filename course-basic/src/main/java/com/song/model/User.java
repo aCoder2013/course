@@ -25,9 +25,16 @@ public class User {
     @Column(unique = true,nullable = false)
     private String name;
 
+    private String mobile;
+
     private String email;
 
+    @Column(nullable = false,length = 128)
     private String password;
+
+    private long created;
+
+    private long updated;
 
     public User(String name,String password) {
         this.name = name;

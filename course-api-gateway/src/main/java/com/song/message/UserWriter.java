@@ -1,5 +1,7 @@
 package com.song.message;
 
+import com.song.vo.UserVO;
+
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.annotation.MessagingGateway;
 
@@ -10,5 +12,5 @@ import org.springframework.integration.annotation.MessagingGateway;
 public interface UserWriter {
 
     @Gateway(requestChannel = "output")
-    void write(String name);
+    void write(UserVO userVO);
 }

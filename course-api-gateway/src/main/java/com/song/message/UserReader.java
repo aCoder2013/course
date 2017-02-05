@@ -18,6 +18,6 @@ public interface UserReader {
     @RequestMapping(value = "/users",method = RequestMethod.GET)
     Resources<User> read();
 
-    @RequestMapping(value = "/users/search/by-name",method = RequestMethod.GET)
-    Resources<User> readByName(@RequestParam("name") String name);
+    @RequestMapping(value = "/users/search/by-name-or-mobile",method = RequestMethod.GET)
+    Resources<User> readByNameOrMobile(@RequestParam("name") String name, @RequestParam("mobile") String mobile);
 }
