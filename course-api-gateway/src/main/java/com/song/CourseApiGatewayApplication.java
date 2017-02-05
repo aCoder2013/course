@@ -12,8 +12,9 @@ import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.annotation.IntegrationComponentScan;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
-
+@EnableResourceServer
 @EnableFeignClients
 @IntegrationComponentScan
 @EnableBinding(CourseChannel.class)
@@ -28,7 +29,7 @@ public class CourseApiGatewayApplication {
 
 
     @Bean
-    public Sampler sampler(){
+    public Sampler sampler() {
         return new AlwaysSampler();
     }
 }

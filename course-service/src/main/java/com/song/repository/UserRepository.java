@@ -14,7 +14,7 @@ import java.util.List;
  * Created by song on 2017/1/21.
  */
 @RepositoryRestResource
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     @RestResource(path = "by-name")
     List<User> findByName(@Param("name") String name);
@@ -29,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Override
     @RestResource(exported = false)
-    void delete(String s);
+    void delete(Long aLong);
 
     @Override
     @RestResource(exported = false)

@@ -1,4 +1,4 @@
-package com.song;
+package com.song.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.song.message.UserReader;
@@ -6,11 +6,9 @@ import com.song.message.UserWriter;
 import com.song.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -22,10 +20,6 @@ import java.util.stream.Collectors;
  */
 @RestController
 public class UserApiGatewayController {
-
-    @Autowired
-    @LoadBalanced
-    private RestTemplate restTemplate;
 
     @Autowired
     private UserReader userReader;
