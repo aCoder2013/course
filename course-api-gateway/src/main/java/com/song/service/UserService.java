@@ -55,4 +55,7 @@ public class UserService implements UserDetailsService {
         return result;
     }
 
+    public Result login(String mobile,String password){
+        return userReader.readByMobileAndPassword(mobile,password);
+    }
 }

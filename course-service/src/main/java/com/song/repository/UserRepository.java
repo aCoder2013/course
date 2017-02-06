@@ -10,6 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by song on 2017/1/21.
@@ -19,7 +20,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @RestResource(path = "by-name-or-mobile")
     @Query("select u from User u where UPPER(u.name) = UPPER(:name) or u.mobile = :mobile")
-    List<User> findByNameOrMobileIgnoreCase(@Param("name") String name,@Param("mobile") String mobile);
+    List<User> findByNameOrMobileIgnoreCase(@Param("name") String name, @Param("mobile") String mobile);
+
+    Optional<User> findByMobile(String mobile);
+
+    @Query("select u from User u where u.mobile = :mobile and u.password =:password")
+    Optional<User> findByMobileAndPassword(@Param("mobile") String mobile, @Param("password") String password);
 
     @Override
     @RestResource(exported = false)

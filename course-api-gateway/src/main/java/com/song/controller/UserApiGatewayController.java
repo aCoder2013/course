@@ -68,4 +68,9 @@ public class UserApiGatewayController {
         return result;
     }
 
+    @PostMapping("/login")
+    public Result login(String mobile, String password) {
+        // TODO: 2017/2/6  生成token，放到cookie中
+        return userService.login(mobile, password);
+    }
 }
