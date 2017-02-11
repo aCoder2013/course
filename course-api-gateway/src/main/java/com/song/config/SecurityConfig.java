@@ -22,6 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void init(WebSecurity web) throws Exception {
         super.init(web);
         web.ignoring()
-                .antMatchers("/");
+                .antMatchers("/","/users/register","/users/login");
     }
 }
