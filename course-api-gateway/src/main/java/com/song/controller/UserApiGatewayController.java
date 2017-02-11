@@ -57,7 +57,7 @@ public class UserApiGatewayController {
     }
 
     @PostMapping("/register")
-    public Result newUsers(@Valid UserVO user, BindingResult bindingResult) {
+    public Result register(@Valid UserVO user, BindingResult bindingResult) {
         Result result = Result.create();
         if (bindingResult.hasErrors()) {
             FieldError fieldError = bindingResult.getFieldError();
